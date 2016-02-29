@@ -26,5 +26,8 @@
     "parallelshell": "^2.0.0",
     "uglify-js": "^2.6.1",
     "watch": "^0.17.1"
+  },
+  "dependencies": {
+    "normalize.sass": "^3.0.3-2"
   }
 }
