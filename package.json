@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parallelshell \"npm run dev:jade\" \"npm run dev:sass\" \"npm run watch:js\" \"npm run hot-reload\"",
     "dev:jade": "npm run build:jade; jade --pretty -w src/templates -o public",
-    "watch:js": "watch \"npm run dev:js\" src/scripts/",
+    "watch:js": "mkdir public/js; watch \"npm run dev:js\" src/scripts/",
     "dev:js": "concat-cli -f src/scripts/*.js -o public/js/main.min.js",
     "dev:sass": "npm run build:sass; node-sass -i -w src/styles/main.sass -o public/css ",
     "hot-reload": "browser-sync start --files \"public/*.html, public/css/*.css, public/js/*.js\" --server \"./public\" --index \"index.html\"",
