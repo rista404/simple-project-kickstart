@@ -14,17 +14,19 @@
     "setup": "mkdir -p public public/css public/js",
     "build": "npm run clean; mkdir public/css public/js; npm run build:jade; npm run build:sass; npm run build:js;",
     "build:jade": "jade . -o public",
-    "build:sass": "node-sass -i --output-style compressed src/styles/main.sass -o public/css",
+    "build:sass": "node-sass -i --output-style compressed src/styles/main.sass -o public/css; postcss --use autoprefixer public/css/*.css -d public/css",
     "build:js": "concat-cli -f src/scripts/*.js -o public/js/main.min.js; uglifyjs public/js/main.min.js -c -o public/js/main.min.js"
   },
   "author": "Nikola Ristic",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^6.3.6",
     "browser-sync": "^2.10.1",
     "concat-cli": "^4.0.0",
     "jade": "^1.11.0",
     "node-sass": "^3.4.2",
     "parallelshell": "^2.0.0",
+    "postcss-cli": "^2.5.2",
     "uglify-js": "^2.6.1",
     "watch": "^0.17.1"
   },
